@@ -1,0 +1,40 @@
+name: "CI/CD for Time2Feast web application"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.4
+      - name: Install dependencies
+        run: bundle install
+      - name: Security audit dependencies
+        run: bundle exec bundler-audit --update
+      - name: Security audit application code
+        run: bundle exec brakeman -q  -w2
+      - name: Lint Ruby files
+        run: bundle exec rubocop --parallel --autocorrect --disable-uncorrectable
+      - name: Lint Embedded Ruby files
+        run: bundle exec erb --lint-all --autocorrect
+        continue-on-error: true
+
+  # deploy:
+    # runs-on: ubuntu-latest
+    # steps for deploy will be written once vm is created
+        run: bundle binstubs bundler-audit brakeman rubocop
+      # Add or replace any other lints here
+      - name: Security audit dependencies
+        run: bin/bundler-audit --update
+      - name: Security audit application code
+        run: bin/brakeman -q -w2
+      - name: Lint Ruby files
+        run: bin/rubocop --parallel
