@@ -27,6 +27,39 @@ jobs:
         run: bundle exec erb --lint-all --autocorrect
         continue-on-error: true
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up environment variables
+
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.4
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Prepare Database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Precompile assests
+        run: bundle exec rails assets:precompile
+
   # deploy:
     # runs-on: ubuntu-latest
     # steps for deploy will be written once vm is created
