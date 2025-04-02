@@ -1,6 +1,6 @@
 # Load bashrc
 source ~/.bashrc
-Properly load rbenv
+# Properly load rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # Go to project folder
