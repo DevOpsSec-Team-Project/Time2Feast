@@ -1,13 +1,10 @@
-# Writing correct version to .ruby-version file
-# echo "3.2.2" > .ruby-version
-# Setting version to 3.2.2
-cd Time2Feast
-rbenv rehash
 # Load bashrc
-# source ~/.bashrc
-# Properly load rbenv
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+source ~/.bashrc
+Properly load rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+# Go to project folder
+cd Time2Feast
 # Installing dependencies
 bundle install
 # Set environment to production
@@ -15,7 +12,4 @@ bundle install
 # Run migrations on database
 # rails db:migrate
 # Run server (Port 80 for now until production ready)
-sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80 
-
-# 29386553d886749700d02b897e0a460971af8280
-# Retest for previous commit above as this was pushed when AWS lab was off
+sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80
