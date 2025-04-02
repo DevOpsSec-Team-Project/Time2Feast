@@ -2,6 +2,9 @@
 # echo "3.2.2" > .ruby-version
 # Setting version to 3.2.2
 # rbenv rehash
+# Properly load rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 # Installing dependencies
 bundle install
 # Set environment to production
