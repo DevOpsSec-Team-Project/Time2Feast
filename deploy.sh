@@ -1,7 +1,7 @@
 # Writing correct version to .ruby-version file
-echo "3.2.2" > .ruby-version
+# echo "3.2.2" > .ruby-version
 # Setting version to 3.2.2
-rbenv rehash
+# rbenv rehash
 # Installing dependencies
 bundle install
 # Set environment to production
