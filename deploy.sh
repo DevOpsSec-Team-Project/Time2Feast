@@ -12,4 +12,7 @@ bundle install
 # Run migrations on database
 # rails db:migrate
 # Run server (Port 80 for now until production ready)
-sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80
+sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80 
+
+# 29386553d886749700d02b897e0a460971af8280
+# Retest for previous commit above as this was pushed when AWS lab was off
