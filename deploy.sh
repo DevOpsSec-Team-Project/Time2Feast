@@ -1,10 +1,13 @@
 # Writing correct version to .ruby-version file
 # echo "3.2.2" > .ruby-version
 # Setting version to 3.2.2
-# rbenv rehash
+cd Time2Feast
+rbenv rehash
+# Load bashrc
+# source ~/.bashrc
 # Properly load rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 # Installing dependencies
 bundle install
 # Set environment to production
