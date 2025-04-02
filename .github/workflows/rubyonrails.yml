@@ -56,21 +56,20 @@ jobs:
     runs-on: ubuntu-latest
     # Add test to needs later
     needs: [build]
+    env:
+      # GitHub secrets
+      PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+      EC2_PUBLIC_DNS: ${{ secrets.EC2_PUBLIC_DNS }}
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up  environment variables
-        env:
-          # GitHub secrets
-          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
-          EC2_PUBLIC_DNS: ${{ secrets.EC2_PUBLIC_DNS }}
-
-          # Save private key and set permissions
-          run: |
-            echo "$PRIVATE_KEY" > private-key.pem
-            chmod 600 primary-key.pem
+      - name: Save private key and set permissions
+        run: |
+          echo "$PRIVATE_KEY" > private-key.pem
+          chmod 600 primary-key.pem
 
       - name: SSH into instance
         run: |
