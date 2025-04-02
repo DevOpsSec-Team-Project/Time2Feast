@@ -71,6 +71,10 @@ jobs:
           echo "${{ secrets.EC2_INSTANCE_KEY_PAIR }}" > private-key.pem
           chmod 600 private-key.pem
           ssh -o StrictHostKeyChecking=no -i private-key.pem \
-          ${{ env.EC2_USERNAME }}@${{ env.EC2_PUBLIC_DNS }} \
-          sudo rm -rf Time2Feast; git clone https://github.com/DevOpsSec-Team-Project/Time2Feast; \
-          source Time2Feast/deploy.sh
+          ${{ env.EC2_USERNAME }}@${{ env.EC2_PUBLIC_DNS }} "
+          cd ~
+          sudo rm -rf Time2Feast;
+          git clone https://github.com/DevOpsSec-Team-Project/Time2Feast; 
+          cd Time2Feast
+          bash deploy.sh
+          "
