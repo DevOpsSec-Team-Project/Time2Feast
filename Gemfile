@@ -18,6 +18,9 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Verification for bundled apps
 gem "bundler-audit"
+# User accounts and authentication
+gem "devise", ">= 4.9"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
