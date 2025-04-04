@@ -66,7 +66,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: SSH into instance
+      - name: SSH into instance and deploy
         run: |
           echo "${{ secrets.EC2_INSTANCE_KEY_PAIR }}" > private-key.pem
           chmod 600 private-key.pem
@@ -78,3 +78,5 @@ jobs:
           cd Time2Feast
           bash deploy.sh
           "
+      - name: Remove SSH key
+        run: rm private-key.pem
