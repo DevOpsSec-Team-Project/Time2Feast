@@ -20,4 +20,4 @@ rails db:migrate
 sudo fuser -k 80/tcp
 
 # Run server in background
-nohup sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80
+nohup sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80 > log/deploy.log 2>&1 &
