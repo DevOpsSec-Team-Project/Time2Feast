@@ -18,3 +18,5 @@ bundle install
 
 # Run server (Port 80 for now until production ready)
 sudo -E /home/ubuntu/.rbenv/shims/bundle exec rails server --binding 0.0.0.0 --port 80
+
+# Deployment push test now that instance is running
