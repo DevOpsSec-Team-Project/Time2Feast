@@ -13,12 +13,13 @@ h1{
     margin-top: 25px;
 }
 
-/* Center default Devise sign up form */
-.devise-form{
+/* Centers all forms in application */
+.form-layout{
     text-align:center;
     width: 350px;
     margin: 25px auto;
     padding: 20px;
+    font-family: 'Metrophobic', sans-serif;
 }
  
 .field{
@@ -54,13 +55,27 @@ h1{
     border-width: 3px;
 }
 .log-in-btn{
-    background-color: #FF7171;
+    background-color: #8a8383;
     color:white;
     height:60px;
     width: 150px;
     border-radius:5px;
     border: none;
     margin-bottom: 20px;
+}
+
+.new-recipe-btn {
+    display: block;
+    background-color: #FF7171;
+    color: white;
+    height: 50px;
+    width: 230px;
+    margin: 25px auto;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 50px;
+    font-weight: bold;
 }
 .nav-options-pane{
     position:relative;

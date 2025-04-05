@@ -1,47 +1,81 @@
-<%= form_with(model: recipe) do |form| %>
-  <% if recipe.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class="form-layout recipe-form">
+  <%= form_with(model: recipe) do |form| %>
+    <% if recipe.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-        <% recipe.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% recipe.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <!-- Removed duration as it is calculated and not derived from user input -->
+
+    <div>
+      <%= form.label :minutes, style: "display: block" %>
+      <%= form.number_field :minutes %>
+    </div>
+
+    <div>
+      <%= form.label :hours, style: "display: block" %>
+      <%= form.number_field :hours %>
+    </div>
+
+    <div>
+      <%= form.label :ingredients, "Ingredients", style: "display: block" %>
+      
+      <div id="ingredients-container">
+        <input type="text" name="recipe[ingredients][]" />
+      </div>
+
+      <button type="button" onclick="addIngredient()">Add Ingredient</button>
+    </div>
+
+    <div>
+      <%= form.label :steps, "Steps", style: "display: block" %>
+      
+      <div id="steps-container">
+        <input type="text" name="recipe[steps][]" placeholder="Step 1" />
+      </div>
+
+      <button type="button" onclick="addStep()">Add Step</button>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<script>
+  function addIngredient() {
+    const container = document.getElementById('ingredients-container');
 
-  <div>
-    <%= form.label :duration, style: "display: block" %>
-    <%= form.text_field :duration %>
-  </div>
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'recipe[ingredients][]';
+    input.placeholder = 'Enter another ingredient';
 
-  <div>
-    <%= form.label :minutes, style: "display: block" %>
-    <%= form.number_field :minutes %>
-  </div>
+    container.appendChild(input);
+  }
 
-  <div>
-    <%= form.label :hours, style: "display: block" %>
-    <%= form.number_field :hours %>
-  </div>
+  function addStep() {
+    const container = document.getElementById('steps-container');
+    const stepCount = container.querySelectorAll('input').length + 1;
 
-  <div>
-    <%= form.label :ingredients, style: "display: block" %>
-    <%= form.text_area :ingredients %>
-  </div>
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'recipe[steps][]';
+    input.placeholder = `Step ${stepCount}`;
 
-  <div>
-    <%= form.label :steps, style: "display: block" %>
-    <%= form.text_area :steps %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    container.appendChild(input);
+  }
+</script>

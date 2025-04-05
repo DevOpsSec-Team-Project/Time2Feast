@@ -4,10 +4,12 @@
     <%= recipe.name %>
   </p>
 
+  <!-- Commenting out duration for now until I've created method to calculate duration 
   <p>
     <strong>Duration:</strong>
     <%= recipe.duration %>
   </p>
+  -->
 
   <p>
     <strong>Minutes:</strong>
@@ -19,14 +21,18 @@
     <%= recipe.hours %>
   </p>
 
-  <p>
-    <strong>Ingredients:</strong>
-    <%= recipe.ingredients %>
-  </p>
+  <p><strong>Ingredients:</strong></p>
+  <ul>
+    <% @recipe.parsed_ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
 
-  <p>
-    <strong>Steps:</strong>
-    <%= recipe.steps %>
-  </p>
+  <p><strong>Steps:</strong></p>
+  <ol>
+    <% @recipe.parsed_steps.each do |step| %>
+      <li><%= step %></li>
+    <% end %>
+  </ol>
 
 </div>
