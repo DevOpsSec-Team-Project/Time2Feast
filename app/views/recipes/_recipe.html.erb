@@ -1,0 +1,38 @@
+<div id="<%= dom_id recipe %>">
+  <p>
+    <strong>Name:</strong>
+    <%= recipe.name %>
+  </p>
+
+  <!-- Commenting out duration for now until I've created method to calculate duration 
+  <p>
+    <strong>Duration:</strong>
+    <%= recipe.duration %>
+  </p>
+  -->
+
+  <p>
+    <strong>Minutes:</strong>
+    <%= recipe.minutes %>
+  </p>
+
+  <p>
+    <strong>Hours:</strong>
+    <%= recipe.hours %>
+  </p>
+
+  <p><strong>Ingredients:</strong></p>
+  <ul>
+    <% @recipe.parsed_ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+
+  <p><strong>Steps:</strong></p>
+  <ol>
+    <% @recipe.parsed_steps.each do |step| %>
+      <li><%= step %></li>
+    <% end %>
+  </ol>
+
+</div>

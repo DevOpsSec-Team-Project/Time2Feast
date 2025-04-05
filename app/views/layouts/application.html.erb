@@ -20,6 +20,8 @@
 
     <!-- Michroma Font -->
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <!-- Metrophobic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Michroma&display=swap" rel="stylesheet">
     
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -31,7 +33,14 @@
       <%= button_to 'Time2Feast', root_path, method: :get, id: 'logo' %>
 
       <!-- Navbar Links -->
-      
+      <div style="position: absolute; top: 10px; right: 10px; background: white; padding: 5px;">
+        <% if user_signed_in? %>
+          Logged in as: <%= current_user.first_name %> (<%= current_user.email %>)
+        <% else %>
+          Not signed in
+        <% end %>
+      </div>
+
     </nav>
     <%= yield %>
   </body>
