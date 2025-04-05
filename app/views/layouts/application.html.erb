@@ -41,6 +41,19 @@
         <% end %>
       </div>
 
+      <%= button_to 'Time2Feast', root_path, method: :get, id: 'logo',class: "main-logo-btn" %>
+      
+      <!--Mark MacGowanS -->
+      <!-- Navbar Links -->
+      <div class="nav-options-pane">
+        <%=link_to 'Users', root_path, method: :get, class: "nav-bar-elements" %>
+        <%=link_to 'Vegan/Vegetarian', root_path, method: :get,class: "nav-bar-elements" %>
+       
+        
+        <%=link_to 'Sign Up', root_path, method: :get, class: "nav-sign-up-btn"%>
+        
+      </div>
+      <!-- Align in the middle -->
     </nav>
     <%= yield %>
   </body>

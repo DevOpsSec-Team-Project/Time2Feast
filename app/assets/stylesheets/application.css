@@ -41,6 +41,19 @@ h1{
 }
 
 /* Mark MacGowan */
+
+.main-logo-btn{
+    border-radius: 25px;
+    height: 60px;
+    width: 200px;
+    margin-left: 10px;
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: rgb(230, 187, 78);
+    color:rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    border-width: 3px;
+}
 .log-in-btn{
     background-color: #8a8383;
     color:white;
@@ -63,4 +76,32 @@ h1{
     text-decoration: none;
     line-height: 50px;
     font-weight: bold;
+}
+.nav-options-pane{
+    position:relative;
+    float: right;
+    margin-left: 250px;
+    
+}
+.nav-bar-elements{
+    color: white;
+    height:60px;
+    width: 160px;
+    border: none;
+    margin-right: 250px ;
+    margin-bottom: 20px;
+    font-size: xx-large;
+    text-decoration: none;
+}
+.nav-sign-up-btn{
+    position: relative;
+    
+    height:60px;
+    width: 160px;
+    border-radius: 25px;
+    background-color:#ffb000;
+    margin-left: 30px;
+    color:rgb(0, 0, 0);
+    font-size: xx-large;
+    text-decoration: none;
 }
