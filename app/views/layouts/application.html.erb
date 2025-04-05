@@ -30,15 +30,25 @@
       <!-- Logo -->
       <%= button_to 'Time2Feast', root_path, method: :get, id: 'logo',class: "main-logo-btn" %>
       
-      <!--Mark MacGowanS -->
+      <!--Mark MacGowan -->
       <!-- Navbar Links -->
       <div class="nav-options-pane">
-        <%=link_to 'Users', root_path, method: :get, class: "nav-bar-elements" %>
-        <%=link_to 'Vegan/Vegetarian', root_path, method: :get,class: "nav-bar-elements" %>
+        <!-- Align in the middle -->
+        <%=link_to 'Users', accounts_path, method: :get, class: "nav-bar-elements" %>
+        <!-- <%=link_to 'Vegan/Vegetarian', root_path, method: :get,class: "nav-bar-elements" %> -->
        
-        
-        <%=link_to 'Sign Up', root_path, method: :get, class: "nav-sign-up-btn"%>
-        
+        <% if user_signed_in? %>
+          <div class="nav-user-dropdown">
+            <button class="nav-user-btn"><%= current_user.username %> </button>
+            <div class="dropdown-content">
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout-link" %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "nav-bar-elements nav-accounts-btn" %>
+          <%= link_to 'Log In', new_user_session_path, class: "nav-bar-elements nav-accounts-btn" %>
+        <% end %>
+       
       </div>
       <!-- Align in the middle -->
     </nav>

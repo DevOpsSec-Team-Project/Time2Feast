@@ -73,20 +73,67 @@ h1{
     height:60px;
     width: 160px;
     border: none;
-    margin-right: 250px ;
+    margin-right: 90px ;
     margin-bottom: 20px;
     font-size: xx-large;
     text-decoration: none;
 }
-.nav-sign-up-btn{
+.nav-accounts-btn{
     position: relative;
-    
-    height:60px;
-    width: 160px;
-    border-radius: 25px;
-    background-color:#ffb000;
+    padding: 15px 30px; /* Adds space inside the button */
+    border-radius: 12px;
+    background-color: #fffb00;
     margin-left: 30px;
-    color:rgb(0, 0, 0);
-    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 20px;
     text-decoration: none;
+    display: inline-block; /* Helps apply padding properly */
+    text-align: center;
+}
+ 
+/* Dropdown on username for log out option */
+.nav-user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+ 
+.nav-user-btn {
+    padding: 15px 30px;
+    border-radius: 12px;
+    background-color: #fffb00;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
+ 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+}
+ 
+.dropdown-content .logout-link {
+    background-color: #efee9d;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+ 
+.dropdown-content .logout-link:hover {
+    background-color: #ebe9bf;
+}
+ 
+/* Show the dropdown on hover */
+.nav-user-dropdown:hover .dropdown-content {
+    display: block;
 }
