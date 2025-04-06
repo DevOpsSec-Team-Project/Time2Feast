@@ -84,6 +84,7 @@ h1{
     text-decoration: none;
     line-height: 50px;
     font-weight: bold;
+    padding: 0px;
 }
 
 .nav-options-pane{

@@ -4,29 +4,28 @@
     <%= link_to 'Add New Recipe', new_recipe_path, class: 'new-recipe-btn' %>
 <% end %>
 
-<div class="user-recipes-container">
-  <h2>User Recipes</h2>
+<div class="user-recipes-container" >
+    <h2>User Recipes</h2>
 
-  <% if @user.recipes.any? %>
-    <table class="user-recipes-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Duration</th>>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user.recipes.each do |recipe| %>
-          <tr>
-            <td><%= link_to recipe.name, recipe_path(recipe) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <div class="empty-state">
-      <p>No Recipes Yet</p>
-    </div>
-  <% end %>
-  
+    <% if @user.recipes.any? %>
+        <table class="user-recipes-table">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @user.recipes.each do |recipe| %>
+                <tr>
+                    <td><%= link_to recipe.name, recipe_path(recipe) %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <% else %>
+            <div class="empty-state">
+            <p>No Recipes Yet</p>
+            </div>
+        <% end %> 
 </div>

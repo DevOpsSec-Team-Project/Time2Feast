@@ -35,7 +35,7 @@
 .user-recipes-table {
     border-collapse: collapse;
     width: 80%;
-    max-width: 800px;
+    max-width: 666px;
     background-color: white;
 }
 
@@ -53,14 +53,4 @@
     margin-top: 20px;
     font-style: italic;
     color: #555;
-}
-
-.edit-link {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.delete-link {
-    color: #dc3545;
-    text-decoration: none;
 }
