@@ -1,0 +1,66 @@
+.profile-name {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+}
+  
+.add-recipe-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.new-recipe-btn {
+    background-color: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.user-recipes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user-recipes-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.user-recipes-table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+}
+
+.user-recipes-table th, .user-recipes-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+.user-recipes-table tbody tr:nth-child(even) {
+    background-color: #e7e7ff;
+}
+
+.empty-state {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+}
+
+.edit-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.delete-link {
+    color: #dc3545;
+    text-decoration: none;
+}

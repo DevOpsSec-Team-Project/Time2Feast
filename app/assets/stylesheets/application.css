@@ -2,6 +2,10 @@
  *= require users
  */
 
+ /*
+ *= require profile
+ */
+
 .navbar{
     background-color: #FF7171;
     height: 100px;
