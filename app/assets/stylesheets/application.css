@@ -77,12 +77,14 @@ h1{
     line-height: 50px;
     font-weight: bold;
 }
+
 .nav-options-pane{
     position:relative;
     float: right;
     margin-left: 250px;
     
 }
+
 .nav-bar-elements{
     color: white;
     height:60px;
