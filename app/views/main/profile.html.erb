@@ -19,6 +19,7 @@
                 <% @user.recipes.each do |recipe| %>
                 <tr>
                     <td><%= link_to recipe.name, recipe_path(recipe) %></td>
+                    <td><%= recipe.formatted_duration %></td>
                 </tr>
                 <% end %>
             </tbody>

@@ -25,4 +25,21 @@ class Recipe < ApplicationRecord
     self.steps = value.to_yaml
   end
 
+  # Format the duration as String based on integer values for hrs and mins
+  def formatted_duration
+    return 'NA' if hours.nil? && minutes.nil?
+
+    parts = []
+
+    if hours.present? && hours > 0
+      parts << "#{hours} #{hours == 1 ? 'hr' : 'hrs'}"
+    end
+
+    if minutes.present? && minutes > 0
+      parts << "#{minutes} #{minutes == 1 ? 'min' : 'mins'}"
+    end
+
+    parts.empty? ? 'NA' : parts.join(' ')
+  end
+
 end

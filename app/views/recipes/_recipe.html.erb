@@ -1,38 +1,33 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<div id="<%= dom_id recipe %>" class="d-flex justify-content-center mt-5">
+  <div class="card p-4" style="width: 100%; max-width: 600px;">
+    
+    <!-- Recipe Title -->
+    <h1 class="text-center mb-4" style="font-size: 2rem;"><%= recipe.name %></h1>
 
-  <!-- Commenting out duration for now until I've created method to calculate duration 
-  <p>
-    <strong>Duration:</strong>
-    <%= recipe.duration %>
-  </p>
-  -->
+    <!-- Duration -->
+    <div class="border-top border-bottom py-2">
+      <p class="mb-0"><strong>Duration:</strong> <%= recipe.formatted_duration %></p>
+    </div>
 
-  <p>
-    <strong>Minutes:</strong>
-    <%= recipe.minutes %>
-  </p>
+    <!-- Ingredients -->
+    <div class="border-bottom py-3">
+      <p class="mb-2"><strong>Ingredients</strong></p>
+      <ul class="mb-0">
+        <% recipe.parsed_ingredients.each do |ingredient| %>
+          <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+    </div>
 
-  <p>
-    <strong>Hours:</strong>
-    <%= recipe.hours %>
-  </p>
+    <!-- Steps -->
+    <div class="pt-3">
+      <p class="mb-2"><strong>Steps</strong></p>
+      <ol class="mb-0">
+        <% recipe.parsed_steps.each do |step| %>
+          <li><%= step %></li>
+        <% end %>
+      </ol>
+    </div>
 
-  <p><strong>Ingredients:</strong></p>
-  <ul>
-    <% @recipe.parsed_ingredients.each do |ingredient| %>
-      <li><%= ingredient %></li>
-    <% end %>
-  </ul>
-
-  <p><strong>Steps:</strong></p>
-  <ol>
-    <% @recipe.parsed_steps.each do |step| %>
-      <li><%= step %></li>
-    <% end %>
-  </ol>
-
+  </div>
 </div>

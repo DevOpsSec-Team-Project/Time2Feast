@@ -6,8 +6,9 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
+    
     <p>
+      <%= recipe.name %> <br>
       <%= link_to "Show this recipe", recipe %>
     </p>
   <% end %>

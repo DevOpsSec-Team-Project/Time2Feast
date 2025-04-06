@@ -60,3 +60,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# RSpec for tests
+group :development, :test do
+  gem 'rspec-rails', '~> 7.0.0'
+end
