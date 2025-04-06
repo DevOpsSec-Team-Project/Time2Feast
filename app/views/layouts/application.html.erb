@@ -42,6 +42,9 @@
         <!-- <%=link_to 'Vegan/Vegetarian', root_path, method: :get,class: "nav-bar-elements" %> -->
         
         <% if user_signed_in? %>
+
+          <%=link_to 'Profile', user_profile_path(current_user), method: :get, class: "nav-bar-elements" %>
+
           <div class="nav-user-dropdown">
             <button class="nav-user-btn"><%= current_user.username %> </button>
             <div class="dropdown-content">
