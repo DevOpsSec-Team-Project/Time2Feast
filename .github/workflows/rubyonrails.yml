@@ -78,7 +78,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, test]
+    needs: [build, rspec-test]
     env:
       # GitHub secrets
       PRIVATE_KEY: ${{ secrets.EC2_INSTANCE_KEY_PAIR }}
