@@ -1,0 +1,33 @@
+.navbar-collapse {
+    background-color: #FF7171;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+
+.navbar-collapse .nav-link {
+color: white !important;
+}
+  
+.dropdown-menu {
+background-color: #FF7171 !important;
+border: none;
+border-radius: 10px;
+}
+  
+.dropdown-menu .dropdown-item {
+color: white;
+font-weight: bold;
+}
+  
+.dropdown-menu .dropdown-item:hover {
+background-color: #ff8c8c;
+color: white;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+      margin-bottom: 10px;
+    }
+}
+  

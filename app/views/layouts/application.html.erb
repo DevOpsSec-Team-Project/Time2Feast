@@ -28,36 +28,49 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="background-color: #FF7171;">
+      <div class="container-fluid">
+        <%= button_to 'Time2Feast', root_path, method: :get, id: 'logo', class: "main-logo-btn" %>
 
-      <!-- Navbar Links -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <%= button_to 'Time2Feast', root_path, method: :get, id: 'logo',class: "main-logo-btn" %>
-      
-      <!--Mark MacGowan -->
-      <!-- Navbar Links -->
-      <div class="nav-options-pane">
-        <!-- Align in the middle -->
-        <%=link_to 'Users', accounts_path, method: :get, class: "nav-bar-elements" %>
-        <!-- <%=link_to 'Vegan/Vegetarian', root_path, method: :get,class: "nav-bar-elements" %> -->
-        
-        <% if user_signed_in? %>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
 
-          <%=link_to 'Profile', user_profile_path(current_user), method: :get, class: "nav-bar-elements" %>
+            <li class="nav-item">
+              <%= link_to 'Users', accounts_path, method: :get, class: "nav-link text-white fw-bold fs-5" %>
+            </li>
 
-          <div class="nav-user-dropdown">
-            <button class="nav-user-btn"><%= current_user.username %> </button>
-            <div class="dropdown-content">
-              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout-link" %>
-            </div>
-          </div>
-        <% else %>
-          <%= link_to 'Sign Up', new_user_registration_path, class: "nav-bar-elements nav-accounts-btn" %>
-          <%= link_to 'Log In', new_user_session_path, class: "nav-bar-elements nav-accounts-btn" %>
-        <% end %>
-        
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Profile', user_profile_path(current_user), method: :get, class: "nav-link text-white fw-bold fs-5" %>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= current_user.username %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link text-white fw-bold fs-5" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Log In', new_user_session_path, class: "nav-link text-white fw-bold fs-5" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </nav>
+
     <%= yield %>
   </body>
 </html>

@@ -10,6 +10,10 @@
  *= require recipe_form
  */
 
+ /*
+ *= require navbar
+ */
+
 .navbar{
     background-color: #FF7171;
     height: 100px;
@@ -117,55 +121,6 @@ h1{
 .edit-btn, .delete-btn{
     margin: 0;
     margin-bottom: 25px;
-}
-
-.nav-options-pane{
-    position:relative;
-    float: right;
-    margin-left: 250px;
-    
-}
-
-.nav-bar-elements{
-    color: white;
-    height:60px;
-    width: 160px;
-    border: none;
-    margin-right: 90px ;
-    margin-bottom: 20px;
-    font-size: xx-large;
-    text-decoration: none;
-}
-
-.nav-accounts-btn{
-    position: relative;
-    padding: 15px 30px; /* Adds space inside the button */
-    border-radius: 12px;
-    background-color: #fffb00;
-    margin-left: 30px;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    font-size: 20px;
-    text-decoration: none;
-    display: inline-block; /* Helps apply padding properly */
-    text-align: center;
-}
-
-/* Dropdown on username for log out option */
-.nav-user-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.nav-user-btn {
-    padding: 15px 30px;
-    border-radius: 12px;
-    background-color: #fffb00;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
 }
 
 .dropdown-content {
