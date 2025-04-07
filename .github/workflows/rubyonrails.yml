@@ -75,10 +75,10 @@ jobs:
           bundle exec rails db:schema:load
       - name: Run RSpec tests
         run: bundle exec rspec
+
   deploy:
     runs-on: ubuntu-latest
-    # Add test to needs later
-    needs: [build]
+    needs: [build, test]
     env:
       # GitHub secrets
       PRIVATE_KEY: ${{ secrets.EC2_INSTANCE_KEY_PAIR }}
