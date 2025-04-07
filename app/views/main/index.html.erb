@@ -1,1 +1,28 @@
 <h1>Recent Recipes</h1>
+
+<div class="user-recipe-container">
+    <% if @recipes.any? %>
+        <table class="recent-recipes">
+        <thead>
+            <tr>
+            <th>User</th>
+            <th>Name</th>
+            <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @recipes.each do |recipe| %>
+            <tr>
+                <td><%= recipe.user.username %></td>
+                <td><%= link_to recipe.name, recipe_path(recipe) %></td>
+                <td><%= recipe.formatted_duration %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <% else %>
+        <div class="empty-state">
+            <p>No Recipes Yet</p>
+        </div>
+    <% end %>
+</div>

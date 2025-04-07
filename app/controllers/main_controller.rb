@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+    @recipes = Recipe.includes(:user).all
   end
 
   def profile
