@@ -52,6 +52,29 @@ jobs:
       - name: Precompile assests
         run: bundle exec rails assets:precompile
 
+  rspec-test:
+    name: RSpec
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.4
+          bundler-cache: true
+      - name: Install dependencie
+        run: |
+          gem install bundler
+          bundle install
+      - name: Set up database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+      - name: Run RSpec tests
+        run: bundle exec rspec
   deploy:
     runs-on: ubuntu-latest
     # Add test to needs later

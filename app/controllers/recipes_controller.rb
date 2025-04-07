@@ -52,10 +52,14 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy!
 
+    redirect_to root_path
+
+=begin
     respond_to do |format|
       format.html { redirect_to recipes_path, status: :see_other, notice: "Recipe was successfully destroyed." }
       format.json { head :no_content }
     end
+=end
   end
 
   private

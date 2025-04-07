@@ -6,6 +6,10 @@
  *= require profile
  */
 
+ /*
+ *= require recipe_form
+ */
+
 .navbar{
     background-color: #FF7171;
     height: 100px;
@@ -90,6 +94,7 @@ h1{
 .delete-btn{
     display: block;
     background-color: #ff8400;
+    border: none;
     color: black;
     height: 50px;
     width: 230px;
@@ -111,6 +116,7 @@ h1{
 
 .edit-btn, .delete-btn{
     margin: 0;
+    margin-bottom: 25px;
 }
 
 .nav-options-pane{

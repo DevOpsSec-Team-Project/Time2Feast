@@ -1,9 +1,8 @@
 <div class="form-layout recipe-form">
-  <%= form_with(model: recipe) do |form| %>
+  <%= form_with(model: recipe, class: "recipe-form-fields") do |form| %>
     <% if recipe.errors.any? %>
-      <div style="color: red">
+      <div class="error-messages">
         <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
         <ul>
           <% recipe.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -12,45 +11,39 @@
       </div>
     <% end %>
 
-    <div>
-      <%= form.label :name, style: "display: block" %>
-      <%= form.text_field :name %>
+    <div class="input-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-input" %>
     </div>
 
-    <!-- Removed duration as it is calculated and not derived from user input -->
-
-    <div>
-      <%= form.label :minutes, style: "display: block" %>
-      <%= form.number_field :minutes %>
+    <div class="input-group">
+      <%= form.label :minutes %>
+      <%= form.number_field :minutes, class: "form-input" %>
     </div>
 
-    <div>
-      <%= form.label :hours, style: "display: block" %>
-      <%= form.number_field :hours %>
+    <div class="input-group">
+      <%= form.label :hours %>
+      <%= form.number_field :hours, class: "form-input" %>
     </div>
 
-    <div>
-      <%= form.label :ingredients, "Ingredients", style: "display: block" %>
-      
+    <div class="input-group">
+      <%= form.label :ingredients %>
       <div id="ingredients-container">
-        <input type="text" name="recipe[ingredients][]" />
+        <input type="text" name="recipe[ingredients][]" class="form-input" />
       </div>
-
-      <button type="button" onclick="addIngredient()">Add Ingredient</button>
+      <button type="button" class="add-btn" onclick="addIngredient()">+</button>
     </div>
 
-    <div>
-      <%= form.label :steps, "Steps", style: "display: block" %>
-      
+    <div class="input-group">
+      <%= form.label :steps %>
       <div id="steps-container">
-        <input type="text" name="recipe[steps][]" placeholder="Step 1" />
+        <textarea name="recipe[steps][]" placeholder="Step" class="form-input step-textarea"></textarea>
       </div>
-
-      <button type="button" onclick="addStep()">Add Step</button>
+      <button type="button" class="add-btn" onclick="addStep()">+</button>
     </div>
 
-    <div>
-      <%= form.submit %>
+    <div class="submit-container">
+      <%= form.submit "Add New Recipe", class: "submit-btn" %>
     </div>
   <% end %>
 </div>
@@ -58,24 +51,21 @@
 <script>
   function addIngredient() {
     const container = document.getElementById('ingredients-container');
-
     const input = document.createElement('input');
     input.type = 'text';
     input.name = 'recipe[ingredients][]';
     input.placeholder = 'Enter another ingredient';
-
+    input.className = 'form-input';
     container.appendChild(input);
   }
 
   function addStep() {
     const container = document.getElementById('steps-container');
     const stepCount = container.querySelectorAll('input').length + 1;
-
-    const input = document.createElement('input');
-    input.type = 'text';
+    const input = document.createElement('textarea');
     input.name = 'recipe[steps][]';
     input.placeholder = `Step ${stepCount}`;
-
+    input.className = 'form-input step-textarea';
     container.appendChild(input);
   }
 </script>
